@@ -14,7 +14,7 @@
     <div class="descripcion">
     <h2>Descripción:</h2>
     <!-- <p class="texto" id="texto" :contenteditable="visual" @click="actualizarTexto">{{ description }}</p> -->
-    <textarea class="texto" id="texto" :contenteditable="visual" v-model="description"></textarea>
+    <p class="texto" id="texto" :contenteditable="visual">{{ description }}</p>
     <button @click="actualizarTexto" class="saveChanges">Guardar Cambios</button>
   </div>
 
@@ -38,6 +38,7 @@ if(cookie){
   visual.value = 'true';
 }
 
+console.log(visual);
 
 async function claseOnline() {
   try {

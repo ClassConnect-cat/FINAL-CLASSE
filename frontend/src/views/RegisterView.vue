@@ -8,7 +8,7 @@
             <input id="email" type="email" placeholder="Email" v-model="email" required><br><br>
             <div>
                 <label for="btn1">Eres profesor? Sí</label>
-                <input for="profe" id="btn1" type="checkbox" value='false' v-model="profe">
+                <input for="profe" id="btn1" type="checkbox" value='true' v-model="profe">
             </div>
             <label for="password">Contraseña:</label>
             <input type="password" v-model="password" placeholder="Password" required><br><br>
@@ -24,7 +24,7 @@ import { useStore } from 'vuex';
 
 const username = ref('');
 const email = ref('');
-const profe = ref(false);
+const profe = ref('');
 const password = ref('');
 const registerError = ref('');
 
@@ -35,6 +35,7 @@ const store = useStore();
 
 const register = async () => {
     let itsProfe = false;
+    console.log(profe.value);
     if(profe.value === 'true') itsProfe = true;
 
     var myHeaders = new Headers();

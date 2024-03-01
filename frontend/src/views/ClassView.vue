@@ -37,6 +37,8 @@
   } catch (error) {
     console.error('Error al obtener la lista de restaurantes', error);
   }
+  console.log(profes);
+
 })
 </script>
 
@@ -44,8 +46,8 @@
   <main>
     <h1>{{ clase }}</h1>
       <ul v-if="profes">
-        <li v-for="profe in profes" :key="profe._id">
-          <router-link :to="{ name: 'profile', params: {id: profe._id}}">{{ profe.name }}</router-link>
+        <li class="listUsers" v-for="profe in profes" :key="profe._id">
+          <router-link class="users" :to="{ name: 'profile', params: {id: profe._id}}">{{ profe.name + "\t" + profe.email}}</router-link>
         </li>
       </ul>
   </main>
@@ -54,7 +56,20 @@
 <script>
   import { ref } from 'vue';
   import axios from 'axios';
-import { watch } from 'vue';
-
-  
+  import { watch } from 'vue';
 </script>
+
+<style>
+  .listUsers {
+    list-style: none;
+    gap: 100px;
+    display: grid;
+  }
+  .users {
+    text-decoration: none;
+    color: black;
+  }
+  .users:hover {
+    background-color: lightblue;
+  }
+</style>
