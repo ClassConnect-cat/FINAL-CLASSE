@@ -12,11 +12,12 @@
       <Calendar></Calendar>
     </div>
     <div class="descripcion">
-        <h2>Descripción:</h2>
-        <!-- <p class="texto" id="texto" :contenteditable="visual" @click="actualizarTexto">{{ description }}</p> -->
-        <p class="texto" id="texto" :contenteditable="visual">{{ description }}</p>
-        <button @click="actualizarTexto" class="saveChanges">Guardar Cambios</button>
-      </div>
+    <h2>Descripción:</h2>
+    <!-- <p class="texto" id="texto" :contenteditable="visual" @click="actualizarTexto">{{ description }}</p> -->
+    <textarea class="texto" id="texto" :contenteditable="visual" v-model="description"></textarea>
+    <button @click="actualizarTexto" class="saveChanges">Guardar Cambios</button>
+  </div>
+
   </div>
 </template>
 
@@ -109,6 +110,10 @@ fetch(`http://localhost:3000/user/id/${id}`).then(d => d.json()).then(userInfo =
   background: #FFF;
   height: 70px;
   flex-shrink: 0;
+  width: 100%;
+  height: 20vh; /* Ajusta l'alçada segons la meitat de l'alçada de la finestra visual */
+  resize: none; /* Evita que es redimensioni manualment */
+
 }
 
 .descripcion{
