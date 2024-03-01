@@ -8,18 +8,24 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
+
 (async () => {
 
 require('express-shortcuts')._inject();
 const app = require('./src/app');
 const db = await require('./src/services/db')();
+const addLenguatges = require('./addLenguatges');
+
 
 const port = parseInt(process.env.PORT || 3000);
 
 const dbExists = await checkIfDbExists(db);
     if (!dbExists) {
         await require('./dbcreate')(db);
+        await addLenguatges(db);
 }
+
+
 
 app.listen(port, () => console.log(`Listening on port`, port));
 
