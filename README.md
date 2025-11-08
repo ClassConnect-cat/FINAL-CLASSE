@@ -8,12 +8,12 @@ En la carpeta de backend hem de crear l'arxiu .env i possar el seguent codi:
 PORT=3000
 ```
 
-## - Fer npm install
+## - Fer "npm install"
 
 # Frontend
 
-## - fem un npm install
+## - Fer "npm install"
 
-# Fer docker-compose up a la carpeta principal
+# Fer "docker-compose up" a la carpeta principal
 
 ## - npm run dev
